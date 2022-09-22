@@ -1,15 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import firebaseContext from '../context/firebase'
-import { auth } from '../lib/firebase'
+// import { auth } from '../lib/firebase'
 import * as ROUTES from '../constants/Routes'
-import { async } from '@firebase/util'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
 export const Login = () => {
   const navigate = useNavigate()
   console.log(navigate)
-  const { db } = useContext(firebaseContext)
+  const { db, auth } = useContext(firebaseContext)
   const [password, setPassword] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [error, setError] = useState('')
@@ -17,7 +16,6 @@ export const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
     // const navigate = useNavigate();
 
     console.log('try to auth!')
@@ -65,7 +63,7 @@ export const Login = () => {
         </div>
         <div className='flex items-center justify-center w-full py-5 pc-4 h-2 border border-gray-primary mb-2 text-sm'>
           <p className='text-sm'>Don't you have an account? {' '}
-            <Link to="/signup" className="font-bold text-blue-500">Sign up</Link>
+            <Link to={ROUTES.Sign_Up} className="font-bold text-blue-500">Sign up</Link>
           </p>
         </div>
       </div>
