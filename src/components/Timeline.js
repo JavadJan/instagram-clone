@@ -24,8 +24,8 @@ export const Timeline = () => {
                 count={1} />
             ))
           ) : photos?.length > 0 ? (
-            photos.map((content) => 
-            <Post content={content}/>
+            photos.map((content , index) => 
+            <Post content={content}  key={index}/>
             ))
             : <p className='text-center text-2xl'>follow people to see photo</p>
       }

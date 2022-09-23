@@ -2,6 +2,7 @@ import React,{useRef} from 'react'
 import PropTypes  from 'prop-types'
 import { Header } from './Header'
 import { Image } from './Image'
+import { Actions } from './Actions'
 
 
 export const Post = ({content}) => {
@@ -9,7 +10,8 @@ export const Post = ({content}) => {
   return (
     <div className='rounded col-span-4 border bg-white border-stone-50 mb-8'>
         <Header username={content.username}/>
-        <Image src={content.imageSrc} csption={content.caption}/>
+        <Image src={content.imageSrc} caption={content.caption}/>
+        <Actions like={content.likes} comments={content.comments}/>
     </div>
   )
 }
@@ -23,6 +25,6 @@ Post.propTypes={
         caption: PropTypes.string.isRequired,
         userLikedPhoto: PropTypes.bool.isRequired,
         comments: PropTypes.array.isRequired,
-        dataCreated: PropTypes.number.isRequired,
+        dataCreated: PropTypes.number
     })
 }
