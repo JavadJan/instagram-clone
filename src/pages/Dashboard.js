@@ -1,9 +1,12 @@
 import React from 'react'
+import { useContext } from 'react'
 import { Header } from '../components/Header'
 import  Sidebar  from '../components/sidebar/Index'
 import { Timeline } from '../components/Timeline'
+// import UserContext from '../context/userContext'
 
 export const Dashboard = () => {
+  
   return (
     <div className=''>
       <Header />

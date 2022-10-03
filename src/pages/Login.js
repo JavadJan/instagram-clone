@@ -7,7 +7,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 
 export const Login = () => {
   const navigate = useNavigate()
-  console.log(navigate)
   const { db, auth } = useContext(firebaseContext)
   const [password, setPassword] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
@@ -18,7 +17,6 @@ export const Login = () => {
     event.preventDefault();
     // const navigate = useNavigate();
 
-    console.log('try to auth!')
     await signInWithEmailAndPassword(auth, emailAddress, password)
       .then((userConditional) => {
         navigate(ROUTES.DASHBOARD)

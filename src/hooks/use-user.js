@@ -5,6 +5,7 @@ import { getUserById } from "../services/firebase";
 export const useUser = () => {
     const [activeUser, setActiveUser] = useState({})
     const { user } = useContext(UserContext)
+    console.log(user.uid)
     useEffect(() => {
         async function getUserObjByUserId() {
             const [response] = await getUserById(user.uid)

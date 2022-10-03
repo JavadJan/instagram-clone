@@ -5,7 +5,7 @@ import { getUserById, getPhotos } from "../services/firebase";
 export const usePhotos = () => {
     const [photos, setPhotos] = useState(null)
     const { user } = useContext(UserContext)
-    console.log('user Photoes: ', user.uid)
+    console.log('user Photoes: ', user)
 
     useEffect(() => {
         async function getTimeLinePhotos() {

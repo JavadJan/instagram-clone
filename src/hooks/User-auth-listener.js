@@ -9,7 +9,6 @@ export const UserAuthListener = () => {
 
     useEffect(() => {
         const userListener = onAuthStateChanged(auth, (user) => {
-
             //when user pass authentication phase, here will give a tag that user is logged 
             //user a global state context
             if (user) {

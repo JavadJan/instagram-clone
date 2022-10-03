@@ -55,7 +55,7 @@ export async function updateFollowingUserFollowers(spUserDocId, loggedUserIdDoc,
 
 export async function getPhotos(userId, following) {
 
-    //extract the photosId that exist in following array of user
+    //extract the photosId that exist in following array of the user logged
     const q =query(collection(db, 'photos'), where("userId", "in", following))
     const users_following =await getDocs(q)
     const isFollowed_userPhotos = users_following.docs.map((doc) => ({ ...doc.data(), id: doc.id }))

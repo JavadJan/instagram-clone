@@ -6,7 +6,7 @@ import * as ROUTES from '../constants/Routes'
 // import { async } from '@firebase/util'
 // import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { doesUsernameExist } from '../services/firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
 
 export const Signup = () => {
@@ -31,12 +31,19 @@ export const Signup = () => {
                     .catch((err) => {
                         setError(err)
                     })
+
+                await updateProfile(createdResult.user, {
+                    displayName: username
+                })
                 addDoc(collection(db, 'users'), {
+
                     userId: createdResult.user.uid,
                     username: username.toLowerCase(),
                     fullName: fullName.toLowerCase(),
                     password: password,
                     emailAddress: emailAddress.toLowerCase(),
+                    following: [],
+                    followers:[]
                 })
 
                 navigate(ROUTES.DASHBOARD)
@@ -46,7 +53,7 @@ export const Signup = () => {
                 setPassword('')
                 setUsername('')
             }
-        }else{
+        } else {
             console.log('usernameExist', usernameExist.map((user) => user.username))
             setError("username is exist!")
         }

@@ -4,9 +4,9 @@ import { Suggestions } from './Suggestions'
 import {User} from './User'
 
 const Sidebar = () => {
-  const{ user:{username ,fullName , userId, following, id}} = useUser()
-  // console.log('x', ur.user.username , ur.user.fullName,ur.user.userId,ur.user.id , ur.user.following)
-  console.log('userLogged:',username,id, fullName, userId,following)
+  const{ user:{username , fullName,userId,id ,following}} = useUser()
+  console.log('x',username , fullName,userId,id ,following)
+  console.log('userLogged:' ,id)
   return (
     <div className='mr-3'>
       <User username={username} fullName={fullName}/>
