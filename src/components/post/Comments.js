@@ -20,8 +20,8 @@ export const Comments = ({ comments: allComments, posted, docId, commentInput })
                 }
 
                 {
-                    comments.slice(0, 5).map((item) => (
-                        <p key={`${item.comment}-${item.displayName}`} className="mb-1">
+                    comments.slice(0, 5).map((item ,index) => (
+                        <p key={index} className="mb-1">
                             <Link to={`/p/${item.displayName}`}>
                                 <span className='mr-1 font-bold'>{item.displayName}</span>
                             </Link>
@@ -43,9 +43,9 @@ export const Comments = ({ comments: allComments, posted, docId, commentInput })
 }
 
 Comments.propTypes = {
-    commentInput: PropTypes.string.isRequired,
+    commentInput: PropTypes.object.isRequired,
     docId: PropTypes.string.isRequired,
     comments: PropTypes.array.isRequired,
-    posted: PropTypes.object.isRequired
+    posted: PropTypes.number.isRequired
 }
 
