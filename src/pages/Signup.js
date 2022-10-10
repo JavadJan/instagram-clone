@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import firebaseContext from '../context/firebase'
-import { auth } from '../lib/firebase'
 import * as ROUTES from '../constants/Routes'
 // import { async } from '@firebase/util'
 // import { createUserWithEmailAndPassword } from 'firebase/auth'
+import firebaseContext from '../context/firebase'
+import { auth } from '../lib/firebase'
 import { doesUsernameExist } from '../services/firebase'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
+
+
+
 
 export const Signup = () => {
     const navigate = useNavigate()
@@ -43,7 +46,7 @@ export const Signup = () => {
                     password: password,
                     emailAddress: emailAddress.toLowerCase(),
                     following: [],
-                    followers:[]
+                    followers: []
                 })
 
                 navigate(ROUTES.DASHBOARD)
@@ -57,6 +60,12 @@ export const Signup = () => {
             console.log('usernameExist', usernameExist.map((user) => user.username))
             setError("username is exist!")
         }
+    }
+
+    //handle google sign in 
+    const handleGoogleSignIn = async () => {
+        const provider = new GoogleAuthProvider();
+        await signInWithPopup(auth, provider)
     }
     return (
         <div className="container flex mx-auto max-w-screen-md items-center h-screen">

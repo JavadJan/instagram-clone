@@ -6,6 +6,7 @@ import * as ROUTES from './constants/Routes'
 import { Dashboard } from './pages/Dashboard'
 import { UserAuthListener } from './hooks/User-auth-listener'
 import UserContext from './context/userContext'
+import { Profile } from './pages/Profile'
 // import { ProtectRoute } from './helpers/ProtectRoute'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path={ROUTES.Login} element={ user ? <Dashboard/> : <Login/>} />
           <Route path={ROUTES.Sign_Up} element={user ? <Dashboard/> : <Signup />} />
           <Route path={ROUTES.Not_Found} element={<Notfound />} />
+          <Route path={ROUTES.Profile} element={ user ? <Profile/> : <Login/>} />
           <Route path={ROUTES.DASHBOARD} element={user ? <Dashboard/> : <Login/>} exact/>
         </Routes>
       </Router>
