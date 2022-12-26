@@ -26,7 +26,7 @@ export const Signup = () => {
         event.preventDefault();
         //usernameExist is an array 
         const usernameExist = await doesUsernameExist(username)
-        // console.log('usernameExist:' , usernameExist)
+        console.log('usernameExist:' , usernameExist)
         if (usernameExist.length === 0) {
             try {
                 console.log('usernameDoesNotExist:')
@@ -62,11 +62,7 @@ export const Signup = () => {
         }
     }
 
-    //handle google sign in 
-    const handleGoogleSignIn = async () => {
-        const provider = new GoogleAuthProvider();
-        await signInWithPopup(auth, provider)
-    }
+    
     return (
         <div className="container flex mx-auto max-w-screen-md items-center h-screen">
 

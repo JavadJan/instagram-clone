@@ -16,7 +16,7 @@ export const Header = () => {
                     <div className="text-gray-700 text-center flex items-center align-items">
                         <h1 className='flex justify-center w-full'>
                             <Link to={ROUTES.DASHBOARD} aria-label="instagram logo">
-                                <img src="./images/logo.png" alt="instagram" className='mt-2 w-6/12' />
+                                <img src="/images/logo.png" alt="instagram" className='mt-2 w-6/12' />
                             </Link>
                         </h1>
                     </div>
@@ -44,7 +44,7 @@ export const Header = () => {
                                         </button>
                                         <div className='flex items-center cursor-pointer'>
                                             <Link to={`/p/${user.displayName}`}>
-                                                <img src={`/images/avatars/javad.jpg`} alt={`${user.username} profile`} className="rounded-full h-8 w-8 flex" />
+                                                <img src={`/images/avatars/${user.displayName}.jpg`} alt={`${user.username} profile`} className="rounded-full h-8 w-8 flex" />
                                             </Link>
                                         </div>
                                     </>

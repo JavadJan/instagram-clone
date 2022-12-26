@@ -8,6 +8,8 @@ import { AddComment } from './Add-comment'
 export const Comments = ({ comments: allComments, posted, docId, commentInput }) => {
     const [comments, setComments] = useState(allComments)
     console.log('comments all: ', comments)
+
+    
     return (
         <>
             <div className='p-4 pt-1 pb-4'>

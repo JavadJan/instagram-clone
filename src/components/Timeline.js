@@ -13,11 +13,7 @@ export const Timeline = () => {
   return (
     <div className='mx-3 col-span-2'>
       {
-        !photos ?
-          (
-            [...new Array(4)].map((_, index) => (
-              <Skeleton
-                width={320}
+        !photos ? ([...new Array(4)].map((_, index) => (<Skeleton width={320}
                 height={100}
                 key={index}
                 className='mb-3'

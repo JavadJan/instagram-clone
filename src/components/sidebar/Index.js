@@ -7,6 +7,7 @@ const Sidebar = () => {
   const{ user:{username , fullName,userId,id ,following}} = useUser()
   console.log('x',username , fullName,userId,id ,following)
   console.log('userLogged:' ,id)
+  
   return (
     <div className='mr-3'>
       <User username={username} fullName={fullName}/>
