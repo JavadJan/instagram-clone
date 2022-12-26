@@ -48,6 +48,7 @@ export const Photos = ({ photos }) => {
           </div>)
           )}
       </div>
+      {!photos ||(photos.length===0 && <p className='text-center text-2xl'>No post yest</p>)}
     </div>
   )
 }

@@ -1,13 +1,14 @@
-import { async } from '@firebase/util';
 import { collection, where, getDocs, query, limit, updateDoc, doc, addDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 
 export async function doesUsernameExist(username) {
+    console.log('usernameeeeeeeee' , username)
     const q = query(collection(db, "users"), where("username", "==", username));
     const querySnapshot = await getDocs(q);
     const user = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return user;
 }
+doesUsernameExist('bob')
 
 //get user from fire store where userId === userId(passed from the auth)
 export async function getUserById(uid) {

@@ -39,7 +39,7 @@ export const UserProfile = ({ currentUser }) => {
         profile={currentUser}
         followerCount={followerCount}
         setFollowCount={dispatch}
-        pro={profile}
+        pro={currentUser}
       /> }
       {/* ? (<Skeleton width={600} height={400} className='mb-3' count={3}/>): */}
       <Photos photos={photoCollection} />

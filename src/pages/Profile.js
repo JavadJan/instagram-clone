@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
-import { doesUsernameExist, getUserById } from '../services/firebase'
+import { doesUsernameExist} from '../services/firebase'
 import * as ROUTES from '../constants/Routes'
 import { Header } from '../components/Header'
 import { UserProfile } from '../components/profile';
@@ -22,21 +22,21 @@ export const Profile = () => {
     useEffect(() => {
         async function checkingUserExist() {
             console.log('check function is running!')
-            const res = await doesUsernameExist(username)
-            if (res) {
-                setCurrentUser(res[0])
+            await doesUsernameExist(username).then((user) => {
+                setCurrentUser(user[0])
                 setUserExist(true)
-                console.log('this is user who clicked on it =====>:', res)
-            }
-            else{
+                console.log('this is user who clicked on it =====>:', user)
+
+            }, (err) => {
                 setUserExist(false)
                 setCurrentUser(null)
                 console.log('something went wrong!')
                 //if the user is not logged 
 
-            }
-            
-            
+            })
+
+
+
         }
         //every time this page loaded(rendered this checkingUserExist() function will execute that new user exit or not)
 

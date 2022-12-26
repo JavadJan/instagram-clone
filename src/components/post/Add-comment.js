@@ -17,6 +17,7 @@ export const AddComment = ({ docId, comments, setComments, commentInput }) => {
     setComments([{ displayName, comment }, ...comments])
     setComment('')
 
+    //add new comment 'FieldValue' is firestore key
     return updateDoc(doc(db, 'photos', docId), {
       comments: FieldValue.arrayUnion(displayName, comment)
     })

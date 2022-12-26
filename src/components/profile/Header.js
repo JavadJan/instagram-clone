@@ -26,7 +26,7 @@ export const Header = ({ photosCount,
   const [follow, setFollow] = useState(false)
   const activeBtnFollow = user.username && user.username !== profileUsername
 
-  console.log("photosCount", photosCount, followerCount)
+  console.log("photosCount", photosCount, followerCount , pro)
   useEffect(() => {
     const isLoggedUserFollowingProfile = async () => {
       //following
@@ -38,9 +38,7 @@ export const Header = ({ photosCount,
     }
 
     if (user.username && profileUsername) {
-      return () => {
-        isLoggedUserFollowingProfile()
-      }
+      isLoggedUserFollowingProfile()
     }
 
   }, [user, profileUsername])
@@ -52,7 +50,7 @@ export const Header = ({ photosCount,
       photoCollection: [],
       followerCount: follow ? (followerCount === 0 ? followerCount : followerCount - 1) : followerCount + 1
     })
-    await ToggleFollow(!follow , user.id , profileDocId , profileUserId , user.userId )
+    await ToggleFollow(!follow, user.id, profileDocId, profileUserId, user.userId)
   }
   return (
     <div className='grid grid-cols-3 gap-3 justify-start mx-auto max-w-screen-lg'>
@@ -88,8 +86,8 @@ export const Header = ({ photosCount,
           )}
         </div>
         <div className="container mt-4">
-          {!fullName ? <Skeleton width={100} height={24} /> : <p className='font-medium'>
-            {profileUsername +' '+ fullName}
+          {!(profileUsername || fullName) ? <Skeleton width={100} height={24} /> : <p className='font-medium'>
+            {profileUsername + ' ' + (fullName ? fullName : '')}
           </p>}
         </div>
       </div>

@@ -21,12 +21,9 @@ export const usePhotos = () => {
                 isFollowed_userPhotos =await getPhotos(res.uid , res.following)
                 //re-arrange array to be newest photos first by dataCreated
                 setPhotos(isFollowed_userPhotos.sort((a,b) => b.dateCreated - a.dateCreated))
-
                 console.log('isFollowedPhoto: ', isFollowed_userPhotos)
             }
-
-            //to be sure we have imageSrc
-            console.log('.map((img)=>img.imageSrc):',isFollowed_userPhotos.map((img)=>img.imageSrc))
+            
         }
         if (user.uid) {
             getTimeLinePhotos()

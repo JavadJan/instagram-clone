@@ -3,6 +3,7 @@ import UserContext from '../../context/userContext'
 import firebaseContext from '../../context/firebase'
 import PropTypes from 'prop-types'
 import { arrayRemove, arrayUnion, collection, doc, updateDoc, where } from 'firebase/firestore'
+
 export const Actions = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
 
     const { user: { uid: userId = "" } } = useContext(UserContext)
